@@ -1,0 +1,58 @@
+<div class="album py-5 bg-primary">
+    <div class="container">
+        <!-- Icon Divider-->
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><strong>Tricot By Nath : </strong> <span class="blink">Me Contacter</span></div>
+            <div class="divider-custom-line"></div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center text-warning p-4">
+                <form class="needs-validation" method="POST" action="index.php/?action=envoiMail">
+                    <div class="mb-3">
+                        <label for="nom" class="form-label">Nom et Prenom :</label>
+                        <input type="text" class="form-control" id="nom" name="nom" placeholder="Jean Neymar" value="" required>
+                        <div class="invalid-feedback">
+                            Un nom et prénom valide est requis.
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">E-mail :</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com">
+                        <div class="invalid-feedback">
+                            Un e-mail valide est requis.
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="telephone" class="form-label">Télèphone :</label>
+                        <input type="telephone" class="form-control" id="telephone" name="telephone" placeholder="0102030405">
+                        <div class="invalid-feedback">
+                            Un télèphone valide est requis.
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="text" class="form-label">Message :</label>
+                        <input type="text" class="form-control" id="message" name="message" style="height: 10rem">
+                        <div class="invalid-feedback">
+                            Un message valide est requis.
+                        </div>
+                    </div>
+
+                    <button class="w-25 btn btn-warning mb-3" type="submit" name="entrer">Envoyer</button>
+
+                    <?php if ($retour) { ?>
+                        <div class="alert alert-warning show" role="alert">
+                            E-mail envoyé avec succès !
+                        </div>
+                    <?php } ?>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

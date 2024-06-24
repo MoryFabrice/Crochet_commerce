@@ -1,0 +1,25 @@
+<header class="p-3 bg-primary text-white">
+    <div class="container">
+        <div class="d-flex flex-wrap justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex pt-1 pe-5 mb-2 mb-lg-0">
+                <h4 class="text-warning"><strong>Tricot By Nath</strong></h4>
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="index.php" class="nav-link px-3 text-white">Accueil</a></li>
+
+                <?php foreach ($categories as $categorie) { ?>
+                    <li>
+                        <a href="index.php?action=produit&idCategorie=<?= $categorie['id']; ?>&page=1" class="nav-link px-3 text-white"><?= $categorie['titre']; ?></a>
+                    </li>
+                <?php } ?>
+                <li><a href="index.php?action=contact" class="nav-link px-3 text-white">Contact</a></li>
+            </ul>
+
+            <div class="text-end">
+                <button type="button" class="btn btn-outline-light me-2">Se connecter</button>
+                <button type="button" class="btn btn-warning">S'enregistrer</button>
+            </div>
+        </div>
+    </div>
+</header>

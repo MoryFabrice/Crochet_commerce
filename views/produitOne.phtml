@@ -1,0 +1,40 @@
+<div class="album py-5 bg-primary">
+    <div class="container">
+
+        <!-- Icon Divider-->
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><strong>Tricot By Nath : </strong> <span class="blink"><?= $produit['nom']; ?></span></div>
+            <div class="divider-custom-line"></div>
+        </div>
+
+        <div class="justify-content-lg-start">
+
+            <ul class="d-flex col-12 mb-2 list-unstyled">
+                <li>
+                    <a href="index.php" class="nav-link text-white">Accueil ></a>
+                </li>
+                <li>
+                    <a href="index.php?action=produit&idCategorie=<?= $catProd['id']; ?>" class="nav-link text-white"><?= $catProd['titre']; ?> ></a>
+                </li>
+                <li>
+                    <a href="index.php?action=produitOne&idProd=<?= $produit['id']; ?>" class="nav-link text-white"><?= $produit['nom']; ?></a>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="row produit flex-nowrap">
+            <div class="col-md-7 order-md-2">
+                <h2 class="produit-heading text-white">Nom : <span class="text-warning"><?= $produit['nom']; ?></span></h2>
+                <h2 class="produit-heading text-white">Couleur : <span class="text-warning"><?= $produit['couleur']; ?></span></h2>
+                <h2 class="produit-heading text-white">Nombre pelote : <span class="text-warning"><?= $produit['nbPelote']; ?></span></h2>
+                <h2 class="produit-heading text-white">Prix : <span class="text-warning"><?= $produit['prix']; ?>€</span></h2>
+                <p class="lead text-white p-5"><?= $produit['description']; ?></p>
+            </div>
+            <div class="col-md-5 order-md-1 text-center">
+                <img src="assets/images/<?= $catProd['titre']; ?>/<?= $produit['imagePrinc']; ?>" class="img-thumbnail-prod rounded" alt="...">
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="content">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Titre</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($categories as $categorie) { ?>
+                <tr>
+                    <th scope="row"><?= $categorie['id'] ?></th>
+                    <th scope="row"><?= $categorie['titre'] ?></th>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+</div>
+</div>

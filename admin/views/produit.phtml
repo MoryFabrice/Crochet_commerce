@@ -1,0 +1,57 @@
+<div class="content">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Ref</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Couleur</th>
+                <th scope="col">Nombre de pelote</th>
+                <th scope="col">Prix</th>
+                <th scope="col">Description</th>
+                <th scope="col">Image principale</th>
+                <th scope="col">Favoris</th>
+                <th scope="col">Categorie</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($produitsPourPageCourante as $produit) { ?>
+                <tr>
+                    <th scope="row"><?= $produit['id'] ?></th>
+                    <th scope="row"><?= $produit['nom'] ?></th>
+                    <th scope="row"><?= $produit['couleur'] ?></th>
+                    <th scope="row"><?= $produit['nbPelote'] ?></th>
+                    <th scope="row"><?= $produit['prix'] ?>€</th>
+                    <th scope="row" class="text-truncate-custom"><?= $produit['description'] ?></th>
+                    <th scope="row"><?= $produit['imagePrinc'] ?></th>
+                    <th scope="row"><?php if ($produit['favoris']) { ?>
+                            Oui
+                        <?php } else { ?>
+                            Non
+                        <?php } ?></th>
+                    <th scope="row"><?= $produit['id_categorie'] ?></th>
+                    <th scope="row">
+                        <a href="index.php?action=upProduit" class="btn btn-success"><i class="fa-solid fa-pen"></i></a>
+                        <a href="index.php?action=delProd" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+                    </th>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-end pt-5">
+            <li class="page-item <?= ($pageCourante == 1) ? 'disabled' : '' ?>">
+                <a class="page-link" href="index.php?action=produits&page=<?= $pageCourante - 1 ?>">Précédent</a>
+            </li>
+            <?php for ($page = 1; $page <= $totalPages; $page++) { ?>
+                <li class="page-item <?= ($page == $pageCourante) ? 'active' : '' ?>">
+                    <a class="page-link" href="index.php?action=produits&page=<?= $page ?>"><?= $page ?></a>
+                </li>
+            <?php } ?>
+            <li class="page-item <?= ($pageCourante == $totalPages) ? 'disabled' : '' ?>">
+                <a class="page-link" href="index.php?action=produits&page=<?= $pageCourante + 1 ?>">Suivant</a>
+            </li>
+        </ul>
+    </nav>
+</div>

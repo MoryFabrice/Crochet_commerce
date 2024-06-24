@@ -1,0 +1,42 @@
+<div class="content">
+    <form>
+        <div class="mb-3">
+            <label for="inputNom" class="form-label">Nom :</label>
+            <input type="text" class="form-control" id="nomProd" name="nomProd">
+        </div>
+        <div class="mb-3">
+            <label for="inputCouleur" class="form-label">Couleur :</label>
+            <input type="text" class="form-control" id="inputCouleur" name="inputCouleur">
+        </div>
+        <div class="mb-3">
+            <label for="inputNbPelote" class="form-label">Nombre de pelote :</label>
+            <input type="text" class="form-control" id="inputNbPelote" name="inputNbPelote">
+        </div>
+        <div class="mb-3">
+            <label for="inputPrix" class="form-label">Prix :</label>
+            <input type="text" class="form-control" id="inputPrix" name="inputPrix">
+        </div>
+        <div class="mb-3">
+            <label for="inputDescription" class="form-label">Description :</label>
+            <input type="text" class="form-control" id="inputDescription" name="inputDescription">
+        </div>
+        <div class="mb-3">
+            <label for="inputImagePrinc" class="form-label">Image Principale :</label>
+            <input type="text" class="form-control" id="inputImagePrinc" name="inputImagePrinc">
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="favProd" name="favProd">
+            <label class="form-check-label" for="favProd">Favoris</label>
+        </div>
+        <div class="mb-3">
+            <label for="selectCat" class="form-label">Catégorie :</label>
+            <select id="selectCat" class="form-select">
+                <?php foreach ($categories as $categorie) { ?>
+                    <option value="<?= $categorie['id'] ?>"><?= $categorie['titre'] ?></option>
+                <?php } ?>
+
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary" name="btModif">Ajouter</button>
+    </form>
+</div>

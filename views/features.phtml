@@ -1,0 +1,14 @@
+<div class="featurette p-5 bg-primary">
+    <div class="col-md-7 justify-content-center text-center">
+        <h2 class="featurette-heading text-white">Nouveauté : <span class="text-warning blinkFav"><?= $produitFav['nom'] ?></span></h2>
+        <p class="lead text-white m-5">
+            <?= $produitFav['description'] ?>
+        </p>
+
+        <a href="#" type="button" class="btn btn-warning m-5">Regarder</a>
+    </div>
+    <div class="col-md-5">
+        <img src="assets/images/<?= $categorieFav['titre'] ?>/<?= $produitFav['imagePrinc'] ?>" class="img-thumbnail rounded" alt="...">
+
+    </div>
+</div>

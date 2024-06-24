@@ -1,0 +1,62 @@
+<div class="album py-5 bg-primary">
+    <div class="container">
+        <!-- Icon Divider-->
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><strong>Tricot By Nath : </strong> <span class="blink"><?= $categorieP['titre']; ?></span></div>
+            <div class="divider-custom-line"></div>
+        </div>
+
+        <div class="justify-content-lg-start">
+
+            <ul class="d-flex col-12 mb-2 list-unstyled">
+                <li>
+                    <a href="index.php" class="nav-link text-white">Accueil ></a>
+                </li>
+                <li>
+                    <a href="index.php?action=produit&idCategorie=<?= $categorieP['id']; ?>" class="nav-link text-white"><?= $categorieP['titre']; ?></a>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+            <?php foreach ($produitsPourPageCourante as $produitByCat) { ?>
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <!-- voir pour changer le src pour n'avoir que le nom de la photo -->
+                        <img src="assets/images/<?= $categorieP['titre'] ?>/<?= $produitByCat['imagePrinc'] ?>" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="Thumbnail">
+
+                        <div class="card-body">
+                            <h5 class="text-warning"><?= $produitByCat['nom'] ?></h5>
+                            <p class="card-text text-truncate"><?= $produitByCat['description'] ?></p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="index.php?action=produitOne&idProd=<?= $produitByCat['id'] ?>" type="button" class="btn btn-sm btn-outline-primary">Voir</a>
+                                    <button type="button" class="btn btn-sm btn-outline-warning">Choisir</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
+        </div>
+
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-end pt-5">
+                <li class="page-item <?= ($pageCourante == 1) ? 'disabled' : '' ?>">
+                    <a class="page-link" href="index.php?action=produit&idCategorie=<?= $idCategorie; ?>&page=<?= $pageCourante - 1 ?>">Précédent</a>
+                </li>
+                <?php for ($page = 1; $page <= $totalPages; $page++) { ?>
+                    <li class="page-item <?= ($page == $pageCourante) ? 'active' : '' ?>">
+                        <a class="page-link" href="index.php?action=produit&idCategorie=<?= $idCategorie; ?>&page=<?= $page ?>"><?= $page ?></a>
+                    </li>
+                <?php } ?>
+                <li class="page-item <?= ($pageCourante == $totalPages) ? 'disabled' : '' ?>">
+                    <a class="page-link" href="index.php?action=produit&idCategorie=<?= $idCategorie; ?>&page=<?= $pageCourante + 1 ?>">Suivant</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
