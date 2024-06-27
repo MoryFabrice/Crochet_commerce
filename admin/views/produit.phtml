@@ -1,4 +1,10 @@
 <div class="content">
+    <h4 class="text-warning text-center"> Liste des produits </h4>
+    <?php if ($delOK) { ?>
+        <div class="alert alert-dismissible alert-success text-center show" role="alert">
+            Produit supprimé avec succès !
+        </div>
+    <?php } ?>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -31,9 +37,33 @@
                         <?php } ?></th>
                     <th scope="row"><?= $produit['id_categorie'] ?></th>
                     <th scope="row">
-                        <a href="index.php?action=upProduit" class="btn btn-success"><i class="fa-solid fa-pen"></i></a>
-                        <a href="index.php?action=delProd" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+                        <a href="index.php?action=upProduit&idProd=<?= $produit['id'] ?>" class="btn btn-success"><i class="fa-solid fa-pen"></i></a>
+                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<?= $produit['id']; ?>">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
                     </th>
+
+                    <!-- Modal Delete Button -->
+                    <div class="modal fade" id="deleteModal<?= $produit['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-xl" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header text-center">
+                                    <h1 class="modal-title text-warning" id="deleteModalLabel">Suppression d'un produit</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <p class="fs-3">Voulez-vous vraiment supprimer le produit : <span class="text-warning"><?= $produit['nom'] ?></span></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <!-- Formulaire pour soumettre la suppression -->
+                                    <form action="index.php?action=delProduit&idProd=<?= $produit['id']; ?>" method="POST">
+                                        <button type="submit" class="btn btn-danger" name="btDelete">Supprimer</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </tr>
             <?php } ?>
         </tbody>

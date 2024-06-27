@@ -9,8 +9,14 @@ if (array_key_exists("action", $_GET)) {
         case 'produits':
             include('controllers/produits.php');
             break;
-        case 'addProd':
+        case 'addProduit':
             include('controllers/addProd.php');
+            break;
+        case 'upProduit':
+            include('controllers/upProd.php');
+            break;
+        case 'delProduit':
+            include('controllers/produits.php');
             break;
         case 'categories':
             include('controllers/categories.php');

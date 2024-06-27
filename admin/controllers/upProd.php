@@ -1,12 +1,20 @@
 <?php
 include('header.php');
 
-$ajoutOk = false;
+$modifOk = false;
 
-// Recuperation du bouton btAjout cliqué
-$btAjout = filter_input(INPUT_POST, "btAjout");
+// Recuperation de l'id du produit a updaté
+$idProd = filter_input(INPUT_GET, "idProd");
 
-if (isset($btAjout)) {
+// Recuperation du produit a update grace a l'id
+$prodUp = $produitDAO->selectOne($idProd);
+
+// Recuperation du bouton btUpdate cliqué
+$btUpdate = filter_input(INPUT_POST, "btUpdate");
+
+if (isset($btUpdate)) {
+    // Recuperation de toutes les variables neccessaires pour la modif du produit
+    $id = filter_input(INPUT_GET, "idProd");
     $nom = filter_input(INPUT_POST, "nomProd");
     $couleur = filter_input(INPUT_POST, "couleurProd");
     $nbPelote = filter_input(INPUT_POST, "nbPeloteProd");
@@ -27,12 +35,14 @@ if (isset($btAjout)) {
         $favoris = 0;
     }
 
-    $newProduit = new Produit(0, $nom, $couleur, $nbPelote, $prix, $description, $imagePrinc, $favoris, $categorie);
-    $produitDAO->insert($newProduit);
+    // Creation d'un produit pour la modif
+    $upProduit = new Produit($id, $nom, $couleur, $nbPelote, $prix, $description, $imagePrinc, $favoris, $categorie);
+    // Requete permettant la modif
+    $produitDAO->update($upProduit);
 
-    $ajoutOk = true;
+    $modifOk = true;
 }
 
 
-$template3 = "views/addProduit";
+$template3 = "views/upProduit";
 include("./views/index.phtml");

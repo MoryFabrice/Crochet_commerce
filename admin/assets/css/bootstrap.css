@@ -5087,7 +5087,7 @@ fieldset:disabled .btn {
 }
 
 .alert-success {
-  --bs-alert-color: var(--bs-success-text-emphasis);
+  --bs-alert-color: var(--bs-success);
   --bs-alert-bg: var(--bs-success-bg-subtle);
   --bs-alert-border-color: var(--bs-success-border-subtle);
   --bs-alert-link-color: var(--bs-success-text-emphasis);

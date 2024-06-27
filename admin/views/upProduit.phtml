@@ -1,42 +1,56 @@
 <div class="content">
-    <form>
+    <h4 class="text-warning text-center"> Modification d'un produit </h4>
+    <?php if ($modifOk) { ?>
+        <div class="alert alert-dismissible alert-success text-center show" role="alert">
+            Produit modifié avec succès !
+        </div>
+    <?php } ?>
+    <form action="index.php?action=upProduit&idProd=<?= $prodUp['id'] ?>" method="post">
         <div class="mb-3">
             <label for="inputNom" class="form-label">Nom :</label>
-            <input type="text" class="form-control" id="nomProd" name="nomProd">
+            <input type="text" class="form-control" id="nomProd" name="nomProd" value="<?= $prodUp['nom'] ?>">
         </div>
         <div class="mb-3">
             <label for="inputCouleur" class="form-label">Couleur :</label>
-            <input type="text" class="form-control" id="inputCouleur" name="inputCouleur">
+            <input type="text" class="form-control" id="couleurProd" name="couleurProd" value="<?= $prodUp['couleur'] ?>">
         </div>
         <div class="mb-3">
             <label for="inputNbPelote" class="form-label">Nombre de pelote :</label>
-            <input type="text" class="form-control" id="inputNbPelote" name="inputNbPelote">
+            <input type="text" class="form-control" id="nbPeloteProd" name="nbPeloteProd" value="<?= $prodUp['nbPelote'] ?>">
         </div>
         <div class="mb-3">
             <label for="inputPrix" class="form-label">Prix :</label>
-            <input type="text" class="form-control" id="inputPrix" name="inputPrix">
+            <input type="text" class="form-control" id="prixProd" name="prixProd" value="<?= $prodUp['prix'] ?>">
         </div>
         <div class="mb-3">
             <label for="inputDescription" class="form-label">Description :</label>
-            <input type="text" class="form-control" id="inputDescription" name="inputDescription">
+            <textarea type="text" class="form-control" id="descriptionProd" name="descriptionProd"><?= $prodUp['description'] ?></textarea>
         </div>
         <div class="mb-3">
             <label for="inputImagePrinc" class="form-label">Image Principale :</label>
-            <input type="text" class="form-control" id="inputImagePrinc" name="inputImagePrinc">
+            <input type="text" class="form-control" id="imagePrincProd" name="imagePrincProd" value="<?= $prodUp['imagePrinc'] ?>">
         </div>
         <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="favProd" name="favProd">
+            <?php if ($prodUp['favoris'] == 1) { ?>
+                <input type="checkbox" class="form-check-input" id="favProd" name="favProd" checked>
+            <?php } else { ?>
+                <input type="checkbox" class="form-check-input" id="favProd" name="favProd">
+            <?php } ?>
             <label class="form-check-label" for="favProd">Favoris</label>
         </div>
         <div class="mb-3">
             <label for="selectCat" class="form-label">Catégorie :</label>
-            <select id="selectCat" class="form-select">
+            <select id="selectCat" name="selectCat" class="form-select">
                 <?php foreach ($categories as $categorie) { ?>
-                    <option value="<?= $categorie['id'] ?>"><?= $categorie['titre'] ?></option>
+                    <?php if ($prodUp['id_categorie'] == $categorie['id']) { ?>
+                        <option value="<?= $categorie['id'] ?>" selected><?= $categorie['titre'] ?></option>
+                    <?php } else { ?>
+                        <option value="<?= $categorie['id'] ?>"><?= $categorie['titre'] ?></option>
+                    <?php } ?>
                 <?php } ?>
 
             </select>
         </div>
-        <button type="submit" class="btn btn-primary" name="btModif">Ajouter</button>
+        <button type="submit" class="btn btn-primary" name="btUpdate">Ajouter</button>
     </form>
 </div>

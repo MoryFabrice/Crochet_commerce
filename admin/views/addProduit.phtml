@@ -1,28 +1,34 @@
 <div class="content">
-    <form>
+    <h4 class="text-warning text-center"> Ajout d'un produit </h4>
+    <?php if ($ajoutOk) { ?>
+        <div class="alert alert-dismissible alert-success text-center show" role="alert">
+            Produit ajouté avec succès !
+        </div>
+    <?php } ?>
+    <form action="index.php?action=addProduit" method="post">
         <div class="mb-3">
             <label for="inputNom" class="form-label">Nom :</label>
             <input type="text" class="form-control" id="nomProd" name="nomProd">
         </div>
         <div class="mb-3">
             <label for="inputCouleur" class="form-label">Couleur :</label>
-            <input type="text" class="form-control" id="inputCouleur" name="inputCouleur">
+            <input type="text" class="form-control" id="couleurProd" name="couleurProd">
         </div>
         <div class="mb-3">
             <label for="inputNbPelote" class="form-label">Nombre de pelote :</label>
-            <input type="text" class="form-control" id="inputNbPelote" name="inputNbPelote">
+            <input type="text" class="form-control" id="nbPeloteProd" name="nbPeloteProd">
         </div>
         <div class="mb-3">
             <label for="inputPrix" class="form-label">Prix :</label>
-            <input type="text" class="form-control" id="inputPrix" name="inputPrix">
+            <input type="text" class="form-control" id="prixProd" name="prixProd">
         </div>
         <div class="mb-3">
             <label for="inputDescription" class="form-label">Description :</label>
-            <input type="text" class="form-control" id="inputDescription" name="inputDescription">
+            <input type="text" class="form-control" id="descriptionProd" name="descriptionProd">
         </div>
         <div class="mb-3">
             <label for="inputImagePrinc" class="form-label">Image Principale :</label>
-            <input type="text" class="form-control" id="inputImagePrinc" name="inputImagePrinc">
+            <input type="text" class="form-control" id="imagePrincProd" name="imagePrincProd">
         </div>
         <div class="mb-3 form-check">
             <input type="checkbox" class="form-check-input" id="favProd" name="favProd">
@@ -30,7 +36,7 @@
         </div>
         <div class="mb-3">
             <label for="selectCat" class="form-label">Catégorie :</label>
-            <select id="selectCat" class="form-select">
+            <select id="selectCat" name="selectCat" class="form-select">
                 <?php foreach ($categories as $categorie) { ?>
                     <option value="<?= $categorie['id'] ?>"><?= $categorie['titre'] ?></option>
                 <?php } ?>

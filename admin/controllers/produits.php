@@ -1,6 +1,8 @@
 <?php
 include('header.php');
 
+$delOK = false;
+
 // Recuperation de la liste de tout les produits
 $produits = $produitDAO->selectAll();
 
@@ -21,6 +23,22 @@ $offset = ($pageCourante - 1) * $produitsParPage;
 
 // Récupérer les produits pour la page actuelle
 $produitsPourPageCourante = array_slice($produits, $offset, $produitsParPage);
+
+// Recuperation du bouton btDelete cliqué
+$btDelete = filter_input(INPUT_POST, 'btDelete');
+
+
+if (isset($btDelete)) {
+    // Recuperation de l'id du produit a supprimer
+    $idProdDel = filter_input(INPUT_GET, 'idProd');
+
+    // Requete pour supprimer le produit
+    $produitDAO->delete($idProdDel);
+
+    $delOK = true;
+
+    echo ("le bouton est cliqué et l'id du produit a supp est : " . $idProdDel);
+}
 
 
 $template3 = "views/produit";
