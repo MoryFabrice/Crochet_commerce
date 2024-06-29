@@ -1,0 +1,70 @@
+<div class="content">
+    <h4 class="text-warning text-center"> Bienvenue sur votre Dashboard ! </h4>
+
+    <h5 class="text-warning" >Nombre de produit par catégorie : </h5>
+    <canvas id="chart1" width="400" height="200"></canvas>
+
+
+    <script>
+        (function() {
+            'use strict';
+
+            // Récupérer les données PHP
+            var donneesPhpCat = <?php echo json_encode($categories); ?>;
+            var donneesPhpValues = <?php echo json_encode($valeurs); ?>;
+            var categoriesTitles = donneesPhpCat.map(function(cat) {
+                return cat.titre;
+            });
+
+            // Fonction pour générer des couleurs aléatoires
+            function generateColors(count) {
+                var backgroundColors = [];
+                var borderColors = [];
+                for (var i = 0; i < count; i++) {
+                    var red = Math.floor(Math.random() * 255);
+                    var green = Math.floor(Math.random() * 255);
+                    var blue = Math.floor(Math.random() * 255);
+                    backgroundColors.push('rgba(' + red + ', ' + green + ', ' + blue + ', 0.2)');
+                    borderColors.push('rgba(' + red + ', ' + green + ', ' + blue + ', 1)');
+                }
+                return {
+                    backgroundColors,
+                    borderColors
+                };
+            }
+
+            var colors = generateColors(donneesPhpCat.length);
+
+            // Graphique 1
+            var ctx1 = document.getElementById('chart1');
+            var chart1 = new Chart(ctx1, {
+                type: 'pie',
+                data: {
+                    labels: categoriesTitles,
+                    datasets: [{
+                        label: 'My First Dataset',
+                        data: donneesPhpValues,
+                        backgroundColor: colors.backgroundColors,
+                        borderColor: colors.borderColors,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            enabled: true
+                        },
+                        title: {
+                            display: true,
+                            text: 'Nombre de produit par catégorie'
+                        }
+                    }
+                },
+            });
+        })();
+    </script>
+</div>

@@ -10,6 +10,14 @@ class CategorieDAO
         return $categories;
     }
 
+    public function selectAllTitre()
+    {
+        $query = Database::connect()->prepare('SELECT titre FROM categorie');
+        $query->execute();
+        $categories = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $categories;
+    }
+
     public function selectOne($id)
     {
         $query = Database::connect()->prepare('SELECT * FROM categorie WHERE id= ?');
@@ -26,13 +34,13 @@ class CategorieDAO
 
     public function update(Categorie $categorie)
     {
-        $query = Database::connect()->prepare('UPDATE categorie SET titre=?,id_sousCategorie=? WHERE id = ?');
-        $query->execute([$categorie->getTitre(), $categorie->getId_sousCategorie(), $categorie->getId()]);
+        $query = Database::connect()->prepare('UPDATE categorie SET titre=? WHERE id = ?');
+        $query->execute([$categorie->getTitre(), $categorie->getId()]);
     }
 
     public function insert(Categorie $categorie)
     {
-        $query = Database::connect()->prepare('INSERT INTO categorie (titre,id_sousCategorie) VALUES (?,?)');
-        $query->execute([$categorie->getTitre(), $categorie->getId_sousCategorie()]);
+        $query = Database::connect()->prepare('INSERT INTO categorie (titre) VALUES (?)');
+        $query->execute([$categorie->getTitre()]);
     }
 }

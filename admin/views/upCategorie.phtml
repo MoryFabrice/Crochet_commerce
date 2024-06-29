@@ -1,0 +1,15 @@
+<div class="content">
+    <h4 class="text-warning text-center"> Modification d'une catégorie </h4>
+    <?php if ($modifCatOk) { ?>
+        <div class="alert alert-dismissible alert-success text-center show" role="alert">
+            Catégorie modifié avec succès !
+        </div>
+    <?php } ?>
+    <form action="index.php?action=upCategorie&idCat=<?= $catUp['id'] ?>" method="post">
+        <div class="mb-3">
+            <label for="inputTitre" class="form-label">Titre :</label>
+            <input type="text" class="form-control" id="titreCat" name="titreCat" value="<?= $catUp['titre'] ?>" >
+        </div>
+        <button type="submit" class="btn btn-primary" name="btModif">Modifier</button>
+    </form>
+</div>

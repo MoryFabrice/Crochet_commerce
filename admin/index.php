@@ -21,6 +21,27 @@ if (array_key_exists("action", $_GET)) {
         case 'categories':
             include('controllers/categories.php');
             break;
+        case 'addCategorie':
+            include('controllers/addCat.php');
+            break;
+        case 'upCategorie':
+            include('controllers/upCat.php');
+            break;
+        case 'delCategorie':
+            include('controllers/categories.php');
+            break;
+        case 'sousCategories':
+            include('controllers/sousCategories.php');
+            break;
+        case 'addSousCategorie':
+            include('controllers/addSousCat.php');
+            break;
+        case 'upSousCategorie':
+            include('controllers/upSousCat.php');
+            break;
+        case 'delSousCategorie':
+            include('controllers/sousCategories.php');
+            break;
     }
 } else {
     include('controllers/index.php');

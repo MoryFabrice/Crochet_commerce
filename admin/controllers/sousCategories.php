@@ -1,10 +1,10 @@
 <?php
 include('header.php');
 
-$delCategorieOK = false;
+$delSousCatOK = false;
 
 // Recuperation de la liste de tout les categories
-$categories = $categorieDAO->selectAll();
+$sousCategories = $sousCategorieDAO->selectAll();
 
 // Recuperation du bouton btDelete est cliqué
 $btDelete = filter_input(INPUT_POST, 'btDelete');
@@ -12,13 +12,13 @@ $btDelete = filter_input(INPUT_POST, 'btDelete');
 
 if (isset($btDelete)) {
     // Recuperation de l'id de la categorie a supprimer
-    $idCatDel = filter_input(INPUT_GET, 'idCat');
+    $idSousCatDel = filter_input(INPUT_GET, 'idSousCat');
 
     // Requete pour supprimer la categorie
-    $categorieDAO->delete($idCatDel);
+    $sousCategorieDAO->delete($idSousCatDel);
 
-    $delCategorieOK = true;
+    $delSousCatOK = true;
 }
 
-$template3 = "views/categorie";
+$template3 = "views/sousCategories";
 include("./views/index.phtml");

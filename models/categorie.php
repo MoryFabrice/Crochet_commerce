@@ -3,12 +3,10 @@ class Categorie
 {
     private $id;
     private $titre;
-    private $id_sousCategorie;
-    public function __construct($id, $titre, $id_sousCategorie)
+    public function __construct($id, $titre)
     {
         $this->id = $id;
         $this->titre = $titre;
-        $this->id_sousCategorie = $id_sousCategorie;
     }
     public function getId()
     {
@@ -18,15 +16,6 @@ class Categorie
     public function setId($id)
     {
         $this->id = $id;
-    }
-    public function getId_sousCategorie()
-    {
-        return $this->id_sousCategorie;
-    }
-
-    public function setId_sousCategorie($id_sousCategorie)
-    {
-        $this->id_sousCategorie = $id_sousCategorie;
     }
     public function getTitre()
     {

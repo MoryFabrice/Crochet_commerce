@@ -2,10 +2,13 @@
 include("./../models/Database.php");
 require("./../models/categorie.php");
 require("./../models/categorieDAO.php");
+require("./../models/sousCategorie.php");
+require("./../models/sousCategorieDAO.php");
 require("./../models/produit.php");
 require("./../models/produitDAO.php");
 
 $categorieDAO = new CategorieDAO;
+$sousCategorieDAO = new SousCategorieDAO;
 $produitDAO = new ProduitDAO;
 
 // REQUETE PERMETTANT D'AVOIR LES CATEGORIES SUR LA PAGE INDEX

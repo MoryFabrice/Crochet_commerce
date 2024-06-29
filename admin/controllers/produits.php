@@ -36,8 +36,6 @@ if (isset($btDelete)) {
     $produitDAO->delete($idProdDel);
 
     $delOK = true;
-
-    echo ("le bouton est cliqué et l'id du produit a supp est : " . $idProdDel);
 }
 
 
