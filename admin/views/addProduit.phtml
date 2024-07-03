@@ -43,6 +43,15 @@
 
             </select>
         </div>
+        <div class="mb-3">
+            <label for="selectSousCat" class="form-label">Catégorie :</label>
+            <select id="selectSousCat" name="selectSousCat" class="form-select">
+                <?php foreach ($sousCategories as $sousCategorie) { ?>
+                    <option value="<?= $sousCategorie['id'] ?>"><?= $sousCategorie['titre'] ?></option>
+                <?php } ?>
+
+            </select>
+        </div>
         <button type="submit" class="btn btn-primary" name="btAjout">Ajouter</button>
     </form>
 </div>

@@ -3660,9 +3660,9 @@ fieldset:disabled .btn {
   --bs-dropdown-padding-y: 0.5rem;
   --bs-dropdown-spacer: 0.125rem;
   --bs-dropdown-font-size: 1rem;
-  --bs-dropdown-color: var(--bs-body-color);
-  --bs-dropdown-bg: var(--bs-body-bg);
-  --bs-dropdown-border-color: var(--bs-border-color-translucent);
+  --bs-dropdown-color: var(--bs-white);
+  --bs-dropdown-bg: var(--bs-primary);
+  --bs-dropdown-border-color: var(--bs-primary);
   --bs-dropdown-border-radius: var(--bs-border-radius);
   --bs-dropdown-border-width: var(--bs-border-width);
   --bs-dropdown-inner-border-radius: calc(
@@ -3673,7 +3673,7 @@ fieldset:disabled .btn {
   --bs-dropdown-box-shadow: var(--bs-box-shadow);
   --bs-dropdown-link-color: var(--bs-body-color);
   --bs-dropdown-link-hover-color: #fff;
-  --bs-dropdown-link-hover-bg: #f3969a;
+  --bs-dropdown-link-hover-bg: var(--bs-warning);
   --bs-dropdown-link-active-color: #fff;
   --bs-dropdown-link-active-bg: #78c2ad;
   --bs-dropdown-link-disabled-color: var(--bs-tertiary-color);
@@ -3689,7 +3689,7 @@ fieldset:disabled .btn {
   padding: var(--bs-dropdown-padding-y) var(--bs-dropdown-padding-x);
   margin: 0;
   font-size: var(--bs-dropdown-font-size);
-  color: var(--bs-dropdown-color);
+  color: var(--bs-white);
   text-align: left;
   list-style: none;
   background-color: var(--bs-dropdown-bg);
@@ -3889,7 +3889,7 @@ fieldset:disabled .btn {
   padding: var(--bs-dropdown-item-padding-y) var(--bs-dropdown-item-padding-x);
   clear: both;
   font-weight: 400;
-  color: var(--bs-dropdown-link-color);
+  color: var(--bs-dropdown-color);
   text-align: inherit;
   text-decoration: none;
   white-space: nowrap;

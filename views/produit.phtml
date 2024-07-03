@@ -16,6 +16,12 @@
                 <li>
                     <a href="index.php?action=produit&idCategorie=<?= $categorieP['id']; ?>" class="nav-link text-white"><?= $categorieP['titre']; ?></a>
                 </li>
+                <?php if (isset($idSousCategorie)) { ?>
+
+                    <li>
+                        <a href="index.php?action=produit&idCategorie=<?= $categorieP['id']; ?>" class="nav-link text-white">&nbsp;><?= $sousCategorieP['titre']; ?></a>
+                    </li>
+                <?php } ?>
             </ul>
 
         </div>
@@ -43,20 +49,39 @@
             <?php } ?>
         </div>
 
-        <nav aria-label="Page navigation">
-            <ul class="pagination justify-content-end pt-5">
-                <li class="page-item <?= ($pageCourante == 1) ? 'disabled' : '' ?>">
-                    <a class="page-link" href="index.php?action=produit&idCategorie=<?= $idCategorie; ?>&page=<?= $pageCourante - 1 ?>">Précédent</a>
-                </li>
-                <?php for ($page = 1; $page <= $totalPages; $page++) { ?>
-                    <li class="page-item <?= ($page == $pageCourante) ? 'active' : '' ?>">
-                        <a class="page-link" href="index.php?action=produit&idCategorie=<?= $idCategorie; ?>&page=<?= $page ?>"><?= $page ?></a>
+        <?php if (isset($idSousCategorie)) { ?>
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-end pt-5">
+                    <li class="page-item <?= ($pageCourante == 1) ? 'disabled' : '' ?>">
+                        <a class="page-link" href="index.php?action=produit&idCategorie=<?= $idCategorie; ?>&page=<?= $pageCourante - 1 ?>&idSousCategorie=<?= $idSousCategorie ?>">Précédent</a>
                     </li>
-                <?php } ?>
-                <li class="page-item <?= ($pageCourante == $totalPages) ? 'disabled' : '' ?>">
-                    <a class="page-link" href="index.php?action=produit&idCategorie=<?= $idCategorie; ?>&page=<?= $pageCourante + 1 ?>">Suivant</a>
-                </li>
-            </ul>
-        </nav>
+                    <?php for ($page = 1; $page <= $totalPages; $page++) { ?>
+                        <li class="page-item <?= ($page == $pageCourante) ? 'active' : '' ?>">
+                            <a class="page-link" href="index.php?action=produit&idCategorie=<?= $idCategorie; ?>&page=<?= $page ?>&idSousCategorie=<?= $idSousCategorie ?>"><?= $page ?></a>
+                        </li>
+                    <?php } ?>
+                    <li class="page-item <?= ($pageCourante == $totalPages) ? 'disabled' : '' ?>">
+                        <a class="page-link" href="index.php?action=produit&idCategorie=<?= $idCategorie; ?>&page=<?= $pageCourante + 1 ?>&idSousCategorie=<?= $idSousCategorie ?>">Suivant</a>
+                    </li>
+                </ul>
+            </nav>
+        <?php } else { ?>
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-end pt-5">
+                    <li class="page-item <?= ($pageCourante == 1) ? 'disabled' : '' ?>">
+                        <a class="page-link" href="index.php?action=produit&idCategorie=<?= $idCategorie; ?>&page=<?= $pageCourante - 1 ?>">Précédent</a>
+                    </li>
+                    <?php for ($page = 1; $page <= $totalPages; $page++) { ?>
+                        <li class="page-item <?= ($page == $pageCourante) ? 'active' : '' ?>">
+                            <a class="page-link" href="index.php?action=produit&idCategorie=<?= $idCategorie; ?>&page=<?= $page ?>"><?= $page ?></a>
+                        </li>
+                    <?php } ?>
+                    <li class="page-item <?= ($pageCourante == $totalPages) ? 'disabled' : '' ?>">
+                        <a class="page-link" href="index.php?action=produit&idCategorie=<?= $idCategorie; ?>&page=<?= $pageCourante + 1 ?>">>Suivant</a>
+                    </li>
+                </ul>
+            </nav>
+
+        <?php } ?>
     </div>
 </div>

@@ -11,7 +11,8 @@ class Produit
     private $imagePrinc;
     private $favoris;
     private $id_categorie;
-    public function __construct($id, $nom, $couleur, $nbPelote, $prix, $description, $imagePrinc, $favoris, $id_categorie)
+    private $id_sousCategorie;
+    public function __construct($id, $nom, $couleur, $nbPelote, $prix, $description, $imagePrinc, $favoris, $id_categorie, $id_sousCategorie)
     {
         $this->id = $id;
         $this->nom = $nom;
@@ -22,6 +23,7 @@ class Produit
         $this->imagePrinc = $imagePrinc;
         $this->favoris = $favoris;
         $this->id_categorie = $id_categorie;
+        $this->id_sousCategorie = $id_sousCategorie;
     }
     public function getDescription()
     {
@@ -104,5 +106,14 @@ class Produit
     public function setFavoris($favoris)
     {
         $this->favoris = $favoris;
+    }
+    public function getId_sousCategorie()
+    {
+        return $this->id_sousCategorie;
+    }
+
+    public function setId_sousCategorie($id_sousCategorie)
+    {
+        $this->id_sousCategorie = $id_sousCategorie;
     }
 }

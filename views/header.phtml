@@ -9,8 +9,21 @@
                 <li><a href="index.php" class="nav-link px-3 text-white">Accueil</a></li>
 
                 <?php foreach ($categories as $categorie) { ?>
-                    <li>
-                        <a href="index.php?action=produit&idCategorie=<?= $categorie['id']; ?>&page=1" class="nav-link px-3 text-white"><?= $categorie['titre']; ?></a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link px-3 text-white dropdown-toggle" href="#" id="dropdown<?= $categorie['id'] ?>" data-bs-toggle="dropdown" aria-expanded="false"><?= $categorie['titre']; ?></a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdown<?= $categorie['id'] ?>">
+                            <li><a class="dropdown-item" href="index.php?action=produit&idCategorie=<?= $categorie['id']; ?>&page=1">Tout</a></li>
+                            <?php foreach ($cat_sousCat as $catSousCat) { ?>
+                                <?php if ($catSousCat['categorie_id'] == $categorie['id']) { ?>
+                                    <?php foreach ($sousCategories as $sousCategorie) { ?>
+                                        <?php if ($catSousCat['sousCategorie_id'] == $sousCategorie['id']) { ?>
+                                            <li><a class="dropdown-item" href="index.php?action=produit&idCategorie=<?= $categorie['id']; ?>&idSousCategorie=<?= $sousCategorie['id'] ?>&page=1"><?= $sousCategorie['titre'] ?></a></li>
+                                        <?php } ?>
+
+                                    <?php } ?>
+                                <?php } ?>
+                            <?php } ?>
+                        </ul>
                     </li>
                 <?php } ?>
                 <li><a href="index.php?action=contact" class="nav-link px-3 text-white">Contact</a></li>

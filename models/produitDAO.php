@@ -32,6 +32,13 @@ class ProduitDAO
         $produits = $query->fetchAll(PDO::FETCH_ASSOC);
         return $produits;
     }
+    public function selectAllByCatAndSousCat($idCategorie, $idSousCategorie)
+    {
+        $query = Database::connect()->prepare('SELECT * FROM produit WHERE id_categorie= ? AND id_souscategorie = ?');
+        $query->execute([$idCategorie, $idSousCategorie]);
+        $produits = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $produits;
+    }
 
     public function delete($id)
     {
@@ -41,13 +48,13 @@ class ProduitDAO
 
     public function update(Produit $produit)
     {
-        $query = Database::connect()->prepare('UPDATE produit SET nom=?,couleur=?,nbPelote=?,prix=?,description=?,imagePrinc=?,favoris=?,id_categorie=? WHERE id = ?');
-        $query->execute([$produit->getNom(), $produit->getCouleur(), $produit->getNbPelote(), $produit->getPrix(), $produit->getDescription(), $produit->getImagePrinc(), $produit->getFavoris(), $produit->getId_categorie(), $produit->getId()]);
+        $query = Database::connect()->prepare('UPDATE produit SET nom=?,couleur=?,nbPelote=?,prix=?,description=?,imagePrinc=?,favoris=?,id_categorie=?,id_sousCategorie=? WHERE id = ?');
+        $query->execute([$produit->getNom(), $produit->getCouleur(), $produit->getNbPelote(), $produit->getPrix(), $produit->getDescription(), $produit->getImagePrinc(), $produit->getFavoris(), $produit->getId_categorie(), $produit->getId_sousCategorie(), $produit->getId()]);
     }
 
     public function insert(Produit $produit)
     {
-        $query = Database::connect()->prepare('INSERT INTO produit (nom,couleur,nbPelote,prix,description,imagePrinc,favoris,id_categorie) VALUES (?,?,?,?,?,?,?,?)');
-        $query->execute([$produit->getNom(), $produit->getCouleur(), $produit->getNbPelote(), $produit->getPrix(), $produit->getDescription(), $produit->getImagePrinc(), $produit->getFavoris(), $produit->getId_categorie()]);
+        $query = Database::connect()->prepare('INSERT INTO produit (nom,couleur,nbPelote,prix,description,imagePrinc,favoris,id_categorie,id_sousCategorie) VALUES (?,?,?,?,?,?,?,?,?)');
+        $query->execute([$produit->getNom(), $produit->getCouleur(), $produit->getNbPelote(), $produit->getPrix(), $produit->getDescription(), $produit->getImagePrinc(), $produit->getFavoris(), $produit->getId_categorie(), $produit->getId_sousCategorie()]);
     }
 }
