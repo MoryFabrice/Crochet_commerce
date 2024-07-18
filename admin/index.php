@@ -42,6 +42,18 @@ if (array_key_exists("action", $_GET)) {
         case 'delSousCategorie':
             include('controllers/sousCategories.php');
             break;
+        case 'image':
+            include('controllers/image.php');
+            break;
+        case 'addImage':
+            include('controllers/addImage.php');
+            break;
+        case 'upImage':
+            include('controllers/upImage.php');
+            break;
+        case 'delImage':
+            include('controllers/images.php');
+            break;
     }
 } else {
     include('controllers/index.php');

@@ -1,0 +1,74 @@
+<div class="album py-5 bg-primary">
+    <div class="container">
+        <!-- Icon Divider-->
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><strong>Tricot By Nath : </strong> <span class="blink">Création du compte</span></div>
+            <div class="divider-custom-line"></div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center text-warning p-4">
+                <form class="needs-validation" method="POST" action="index.php/?action=">
+                    <div class="mb-3">
+                        <label for="nom" class="form-label">Nom :</label>
+                        <input type="text" class="form-control" id="nom" name="nom" placeholder="Neymar" value="" required>
+                        <div class="invalid-feedback">
+                            Un nom valide est requis.
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="prenom" class="form-label">Prénom :</label>
+                        <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Jean" value="" required>
+                        <div class="invalid-feedback">
+                            Un prénom valide est requis.
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="adresse" class="form-label">Adresse :</label>
+                        <input type="text" class="form-control" id="adresse" name="adresse" placeholder="1 rue du parc des princes" value="" required>
+                        <div class="invalid-feedback">
+                            Une adresse valide est requise.
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="cp" class="form-label">Code postal :</label>
+                        <input type="text" class="form-control" id="cp" name="cp" placeholder="75000" value="" required>
+                        <div class="invalid-feedback">
+                            Un code postal valide est requis.
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">E-mail :</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com">
+                        <div class="invalid-feedback">
+                            Un e-mail valide est requis.
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="mdp" class="form-label">Mot de passe :</label>
+                        <input type="password" class="form-control" id="mdp" name="mdp" placeholder="MotDePasse123" value="" required>
+                        <div class="invalid-feedback">
+                            Un mot de passe valide est requis.
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="mdp2" class="form-label">Retaper Mot de passe :</label>
+                        <input type="password" class="form-control" id="mdp2" name="mdp2" placeholder="MotDePasse123" value="" required>
+                        <div class="invalid-feedback">
+                            Un mo de passe valide est requis.
+                        </div>
+                    </div>
+
+                    <button class="w-25 btn btn-warning mb-3" type="submit" name="entrer">Créer</button>
+
+                </form>
+            </div>
+        </div>
+    </div>

@@ -1,38 +1,43 @@
 <header class="p-3 bg-primary text-white">
     <div class="container">
-        <div class="d-flex flex-wrap justify-content-center justify-content-lg-start">
-            <a href="/" class="d-flex pt-1 pe-5 mb-2 mb-lg-0">
-                <h4 class="text-warning"><strong>Tricot By Nath</strong></h4>
-            </a>
+        <div class="d-flex flex-wrap">
+            <div class="d-flex flex-wrap justify-content-start">
+                <a href="/" class="d-flex pt-1 pe-5 mb-2 mb-lg-0">
+                    <h4 class="text-warning"><strong>Tricot By Nath</strong></h4>
+                    <!--<img class="img-thumbnail" src="assets/images/logo.jpg" alt="">-->
+                </a>
 
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="index.php" class="nav-link px-3 text-white">Accueil</a></li>
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 mb-md-0">
+                    <li><a href="index.php" class="nav-link px-3 text-white">Accueil</a></li>
 
-                <?php foreach ($categories as $categorie) { ?>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link px-3 text-white dropdown-toggle" href="#" id="dropdown<?= $categorie['id'] ?>" data-bs-toggle="dropdown" aria-expanded="false"><?= $categorie['titre']; ?></a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdown<?= $categorie['id'] ?>">
-                            <li><a class="dropdown-item" href="index.php?action=produit&idCategorie=<?= $categorie['id']; ?>&page=1">Tout</a></li>
-                            <?php foreach ($cat_sousCat as $catSousCat) { ?>
-                                <?php if ($catSousCat['categorie_id'] == $categorie['id']) { ?>
-                                    <?php foreach ($sousCategories as $sousCategorie) { ?>
-                                        <?php if ($catSousCat['sousCategorie_id'] == $sousCategorie['id']) { ?>
-                                            <li><a class="dropdown-item" href="index.php?action=produit&idCategorie=<?= $categorie['id']; ?>&idSousCategorie=<?= $sousCategorie['id'] ?>&page=1"><?= $sousCategorie['titre'] ?></a></li>
+                    <?php foreach ($categories as $categorie) { ?>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link px-3 text-white dropdown-toggle" href="#" id="dropdown<?= $categorie['id'] ?>" data-bs-toggle="dropdown" aria-expanded="false"><?= $categorie['titre']; ?></a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdown<?= $categorie['id'] ?>">
+                                <li><a class="dropdown-item" href="index.php?action=produit&idCategorie=<?= $categorie['id']; ?>&page=1">Tout</a></li>
+                                <?php foreach ($cat_sousCat as $catSousCat) { ?>
+                                    <?php if ($catSousCat['categorie_id'] == $categorie['id']) { ?>
+                                        <?php foreach ($sousCategories as $sousCategorie) { ?>
+                                            <?php if ($catSousCat['sousCategorie_id'] == $sousCategorie['id']) { ?>
+                                                <li><a class="dropdown-item" href="index.php?action=produit&idCategorie=<?= $categorie['id']; ?>&idSousCategorie=<?= $sousCategorie['id'] ?>&page=1"><?= $sousCategorie['titre'] ?></a></li>
+                                            <?php } ?>
+
                                         <?php } ?>
-
                                     <?php } ?>
                                 <?php } ?>
-                            <?php } ?>
-                        </ul>
-                    </li>
-                <?php } ?>
-                <li><a href="index.php?action=contact" class="nav-link px-3 text-white">Contact</a></li>
-            </ul>
+                            </ul>
+                        </li>
+                    <?php } ?>
+                    <li><a href="index.php?action=contact" class="nav-link px-3 text-white">Contact</a></li>
+                    <li><a href="index.php?action=monCompte" class="nav-link px-3 text-white">Mon Compte</a></li>
+                </ul>
+            </div>
 
-            <div class="text-end">
-                <button type="button" class="btn btn-outline-light me-2">Se connecter</button>
-                <button type="button" class="btn btn-warning">S'enregistrer</button>
+            <div class="justify-content-end">
+                <a href="index.php?action=login" type="button" class="btn btn-outline-light me-2">Se connecter</a>
+                <a href="index.php?action=register" type="button" class="btn btn-warning">S'enregistrer</a>
             </div>
         </div>
+
     </div>
 </header>

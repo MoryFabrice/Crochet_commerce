@@ -1,0 +1,56 @@
+<div class="content">
+    <h4 class="text-warning text-center"> Liste des images </h4>
+    <?php if ($delImageOK) { ?>
+        <div class="alert alert-dismissible alert-success text-center show" role="alert">
+            Image supprimé avec succès !
+        </div>
+    <?php } ?>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Url</th>
+                <th scope="col">Nom du produit</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($images as $image) { ?>
+                <tr>
+                    <th scope="row"><?= $image['id'] ?></th>
+                    <th scope="row"><?= $image['url'] ?></th>
+                    <th scope="row"><?= $image['id_produit'] ?></th>
+                    <th scope="row">
+                        <a href="index.php?action=upImage&idImage=<?= $image['id'] ?>" class="btn btn-success"><i class="fa-solid fa-pen"></i></a>
+                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<?= $image['id']; ?>">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </th>
+
+                    <!-- Modal Delete Button -->
+                    <div class="modal fade" id="deleteModal<?= $image['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-xl" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header text-center">
+                                    <h1 class="modal-title text-warning" id="deleteModalLabel">Suppression d'une image</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <p class="fs-3">Voulez-vous vraiment supprimer l'image : <span class="text-warning"><?= $image['url'] ?></span></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <!-- Formulaire pour soumettre la suppression -->
+                                    <form action="index.php?action=delImage&idImage=<?= $image['id']; ?>" method="POST">
+                                        <button type="submit" class="btn btn-danger" name="btDelete">Supprimer</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+</div>
+</div>

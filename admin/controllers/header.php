@@ -6,10 +6,13 @@ require("./../models/sousCategorie.php");
 require("./../models/sousCategorieDAO.php");
 require("./../models/produit.php");
 require("./../models/produitDAO.php");
+require("./../models/image.php");
+require("./../models/imageDAO.php");
 
 $categorieDAO = new CategorieDAO;
 $sousCategorieDAO = new SousCategorieDAO;
 $produitDAO = new ProduitDAO;
+$imageDAO = new ImageDAO;
 
 // REQUETE PERMETTANT D'AVOIR LES CATEGORIES SUR LA PAGE INDEX
 $categories = $categorieDAO->selectAll();

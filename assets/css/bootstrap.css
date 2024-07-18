@@ -768,8 +768,19 @@ progress {
   background-color: var(--bs-body-bg);
   border: var(--bs-border-width) solid var(--bs-border-color);
   border-radius: var(--bs-border-radius);
+  max-width: 90%;
+  width: 473.39px;
+  height: 627.84px;
+  /* object-fit: cover; */
+}
+
+.img-thumbnail-avatar {
+  padding: 0.25rem;
+  background-color: var(--bs-body-bg);
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
   max-width: 100%;
-  height: 90%;
+  /* height: 100%; */
 }
 
 /* Featurettes
@@ -867,7 +878,7 @@ progress {
 @media (min-width: 576px) {
   .container-sm,
   .container {
-    max-width: 540px;
+    max-width: 576px;
     max-height: 720px;
   }
 }
@@ -875,7 +886,7 @@ progress {
   .container-md,
   .container-sm,
   .container {
-    max-width: 720px;
+    max-width: 768px;
     max-height: 720px;
   }
 }
@@ -884,7 +895,7 @@ progress {
   .container-md,
   .container-sm,
   .container {
-    max-width: 960px;
+    max-width: 992px;
     max-height: 720px;
   }
 }
@@ -894,7 +905,7 @@ progress {
   .container-md,
   .container-sm,
   .container {
-    max-width: 1140px;
+    max-width: 1200px;
     max-height: 720px;
   }
 }
@@ -905,7 +916,7 @@ progress {
   .container-md,
   .container-sm,
   .container {
-    max-width: 1320px;
+    max-width: 1400px;
     max-height: 720px;
   }
 }
@@ -6392,6 +6403,7 @@ fieldset:disabled .btn {
   display: none;
   float: left;
   width: 100%;
+  object-fit: cover;
   margin-right: -100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;

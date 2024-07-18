@@ -2,13 +2,13 @@
 class Image
 {
     private $id;
-    private $id_produit;
     private $url;
-    public function __construct($id, $id_produit, $url)
+    private $id_produit;
+    public function __construct($id, $url, $id_produit)
     {
         $this->id = $id;
-        $this->id_produit = $id_produit;
         $this->url = $url;
+        $this->id_produit = $id_produit;
     }
     public function getId()
     {

@@ -18,6 +18,15 @@ if (array_key_exists("action", $_GET)) {
         case "produitOne":
             include 'controllers/produitOne.php';
             break;
+        case "monCompte":
+            include 'controllers/monCompte.php';
+            break;
+        case "login":
+            include 'controllers/login.php';
+            break;
+        case "register":
+            include 'controllers/register.php';
+            break;
     }
 } else {
     include('controllers/index.php');
