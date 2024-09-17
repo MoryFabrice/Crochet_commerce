@@ -32,7 +32,15 @@ class UtilisateurDAO
 
     public function insert(Utilisateur $utilisateur)
     {
-        $query = Database::connect()->prepare('INSERT INTO utilisateur (nom,prenom,adresse,cp,email,motDePasse,avatar,id_role) VALUES (?,?,?,?,?,?,?,?)');
-        $query->execute([$utilisateur->getNom(), $utilisateur->getPrenom(), $utilisateur->getAdresse(), $utilisateur->getCp(), $utilisateur->getEmail(), $utilisateur->getMotDePasse(), $utilisateur->getAvatar(), $utilisateur->getIdRole()]);
+        try {
+            $query = Database::connect()->prepare('INSERT INTO utilisateur (nom,prenom,adresse,cp,email,motDePasse,avatar,id_role) VALUES (?,?,?,?,?,?,?,?)');
+            $query->execute([$utilisateur->getNom(), $utilisateur->getPrenom(), $utilisateur->getAdresse(), $utilisateur->getCp(), $utilisateur->getEmail(), $utilisateur->getMotDePasse(), $utilisateur->getAvatar(), $utilisateur->getIdRole()]);
+            $retour = $query->rowCount();
+        } catch (PDOException $e) {
+            $retour = $e->getMessage();
+        }
+
+
+        return $retour;
     }
 }
